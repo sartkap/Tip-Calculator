@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blueColor"
+
+    android:paddingTop="16dp"
+
+    android:paddingBottom="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/bill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/main.msg.billamount"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        />
+
+    <EditText
+        android:id="@+id/etBillAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bill"
+
+
+        android:background="@android:color/transparent"
+        android:cursorVisible="true"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/main.hint.billamount"
+        android:inputType="numberDecimal"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/white"
+        android:textColorHint="@color/lightGray"
+        android:textColorLink="@color/lightGray" />
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/etBillAmount"
+        android:layout_marginTop="@dimen/activity_vertial_margin"
+        android:background="@color/lightGray"
+
+        />
+    <TextView
+        android:id="@+id/serviceRating"
+        android:gravity="center"
+        android:text="@string/main.msg.servicerating"
+        android:textColor="@color/white"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_below="@id/line1"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/activity_vertial_margin"
+        android:layout_height="wrap_content"
+
+        />
+    <LinearLayout
+        android:id="@+id/imageLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/serviceRating"
+        android:layout_marginTop="@dimen/activity_vertial_margin"
+        android:orientation="horizontal"
+        >
+
+        <ImageButton
+            android:id="@+id/service1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/activity_image_buttons"
+            android:layout_weight="1"
+            android:src="@drawable/emoticon_angry"
+            android:backgroundTint="@color/blueColor"
+            />
+
+        <ImageButton
+            android:id="@+id/service2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/activity_image_buttons"
+            android:layout_weight="1"
+            android:src="@drawable/emoticon_neutral"
+            android:backgroundTint="@color/blueColor"
+
+            />
+
+        <ImageButton
+            android:id="@+id/service3"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/activity_image_buttons"
+            android:layout_weight="1"
+            android:src="@drawable/emoticon_happy"
+            android:backgroundTint="@color/blueColor"
+
+            />
+
+    </LinearLayout>
+    <View
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/imageLayout"
+        android:layout_marginTop="@dimen/activity_vertial_margin"
+        android:background="@color/lightGray"/>
+
+    <LinearLayout
+        android:id="@+id/layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line2"
+        android:layout_marginTop="@dimen/activity_vertial_margin"
+        android:orientation="horizontal"
+        android:divider="?android:dividerHorizontal"
+        android:showDividers="middle"
+        >
+        <TextView
+            android:id="@+id/tipPercent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:text="@string/main.msg.tippercent"
+            android:layout_marginTop="@dimen/activity_vertial_margin"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/tipTotal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:text="@string/main.msg.tiptotal"
+            android:layout_marginTop="@dimen/activity_vertial_margin"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:gravity="center"
+            />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/billTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:textColor="@color/white"
+        android:layout_below="@id/layout2"
+        android:text="@string/main.msg.billtotal"
+        android:layout_marginTop="@dimen/activity_vertical_margin_big"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:gravity="center"
+        android:textAllCaps="true"
+        />
+
+    <TextView
+        android:id="@+id/billTotalAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:textColor="@color/white"
+        android:layout_below="@id/billTotal"
+        android:text="@string/main.msg.billtotalresult"
+        android:layout_marginTop="@dimen/activity_vertial_margin"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:gravity="center"
+
+        />
+
+
+
+    <!-- android:inputType specifies the what input can be taken and can be chosen from design view
+        android:hint displays the message that will be visible only when user has not clicked on the field
+        android:textAppearance specifies the size of the text
+        android:gravity helps allign the text inside the EditText box which thw user enters
+    -->
+
+
+
+</RelativeLayout>
