@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- The above line is not a necessity but it specifies what kind of characters can be present
+        1. Padding means internal margins(within a view)
+        2. tools:context declares which attribute this layout is associated with by default
+        3. textAppearance specifies the size of the text that appears inside a view
+        4. autofillHints helps in autofilling the field by itself when the user is filling something in an edit text
+        5. cursorVisible renders the cursor visible in editText while textCursorDrawable allows the cursor to be changed to any object, for example an image
+        6. android:gravity helps allign the text inside the EditText box which the user enters
+        7. android:inputType specifies the what input can be taken and can be chosen from design view
+
+-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -18,16 +28,14 @@
         android:gravity="center"
         android:text="@string/main.msg.billamount"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/white"
-        />
+        android:textColor="@color/white" />
 
     <EditText
         android:id="@+id/etBillAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/bill"
-
-
+        android:autofillHints="username"
         android:background="@android:color/transparent"
         android:cursorVisible="true"
         android:ems="10"
@@ -37,7 +45,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/white"
         android:textColorHint="@color/lightGray"
-        android:textColorLink="@color/lightGray" />
+        android:textCursorDrawable="@null"
+        />
 
     <View
         android:id="@+id/line1"
@@ -48,43 +57,44 @@
         android:background="@color/lightGray"
 
         />
+
     <TextView
         android:id="@+id/serviceRating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line1"
+        android:layout_marginTop="@dimen/activity_vertial_margin"
         android:gravity="center"
         android:text="@string/main.msg.servicerating"
-        android:textColor="@color/white"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_below="@id/line1"
-        android:layout_width="match_parent"
-        android:layout_marginTop="@dimen/activity_vertial_margin"
-        android:layout_height="wrap_content"
+        android:textColor="@color/white"
 
         />
+
     <LinearLayout
         android:id="@+id/imageLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/serviceRating"
         android:layout_marginTop="@dimen/activity_vertial_margin"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/service1"
             android:layout_width="0dp"
             android:layout_height="@dimen/activity_image_buttons"
             android:layout_weight="1"
-            android:src="@drawable/emoticon_angry"
+
             android:backgroundTint="@color/blueColor"
-            />
+            android:src="@drawable/emoticon_angry" />
 
         <ImageButton
             android:id="@+id/service2"
             android:layout_width="0dp"
             android:layout_height="@dimen/activity_image_buttons"
             android:layout_weight="1"
-            android:src="@drawable/emoticon_neutral"
             android:backgroundTint="@color/blueColor"
+            android:src="@drawable/emoticon_neutral"
 
             />
 
@@ -93,19 +103,20 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/activity_image_buttons"
             android:layout_weight="1"
-            android:src="@drawable/emoticon_happy"
             android:backgroundTint="@color/blueColor"
+            android:src="@drawable/emoticon_happy"
 
             />
 
     </LinearLayout>
+
     <View
         android:id="@+id/line2"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@id/imageLayout"
         android:layout_marginTop="@dimen/activity_vertial_margin"
-        android:background="@color/lightGray"/>
+        android:background="@color/lightGray" />
 
     <LinearLayout
         android:id="@+id/layout2"
@@ -113,33 +124,32 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/line2"
         android:layout_marginTop="@dimen/activity_vertial_margin"
-        android:orientation="horizontal"
         android:divider="?android:dividerHorizontal"
-        android:showDividers="middle"
-        >
+        android:orientation="horizontal"
+        android:showDividers="middle">
+
         <TextView
             android:id="@+id/tipPercent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@color/white"
-            android:text="@string/main.msg.tippercent"
             android:layout_marginTop="@dimen/activity_vertial_margin"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_weight="1"
             android:gravity="center"
-            />
+            android:text="@string/main.msg.tippercent"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/tipTotal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@color/white"
-            android:text="@string/main.msg.tiptotal"
             android:layout_marginTop="@dimen/activity_vertial_margin"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_weight="1"
+
             android:gravity="center"
-            />
+            android:text="@string/main.msg.tiptotal"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white" />
 
 
     </LinearLayout>
@@ -149,36 +159,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:textColor="@color/white"
         android:layout_below="@id/layout2"
-        android:text="@string/main.msg.billtotal"
         android:layout_marginTop="@dimen/activity_vertical_margin_big"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:gravity="center"
+        android:text="@string/main.msg.billtotal"
         android:textAllCaps="true"
-        />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/billTotalAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:textColor="@color/white"
         android:layout_below="@id/billTotal"
-        android:text="@string/main.msg.billtotalresult"
         android:layout_marginTop="@dimen/activity_vertial_margin"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:gravity="center"
+        android:text="@string/main.msg.billtotalresult"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/white"
 
         />
 
 
-
-    <!-- android:inputType specifies the what input can be taken and can be chosen from design view
-        android:hint displays the message that will be visible only when user has not clicked on the field
-        android:textAppearance specifies the size of the text
-        android:gravity helps allign the text inside the EditText box which thw user enters
-    -->
 
 
 

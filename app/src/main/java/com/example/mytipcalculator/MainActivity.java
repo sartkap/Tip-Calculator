@@ -1,6 +1,7 @@
 package com.example.mytipcalculator;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.etBillAmount)
     EditText etBillAmount;
     @BindView(R.id.tipPercent)
-    TextView tipPercent;
+        TextView tipPercent;
     @BindView(R.id.tipTotal)
     TextView tipTotal;
     @BindView(R.id.billTotalAmount)
@@ -34,11 +35,32 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        setValues();
+        String initialValue = "";
+//        String initVal = "";
+//        String initialValue2 = "";
+        if (savedInstanceState != null){
+            initialValue = savedInstanceState.getString("tipPercent");
+            char x = initialValue.charAt(0);
+            if(x=='5')percentage = 5;
+            else if(x=='1')percentage=10;
+            else if(x=='2')percentage=20;
+//            initVal = savedInstanceState.getString("tipTotal");
+//            initialValue2 = savedInstanceState.getString("tipPercent");
+        }
+        else{
+            percentage=0;
+        }
+        //percentage = (Float.valueOf(initialValue)).floatValue();
+        //setValues();
         Log.d(TAG1, "STATUS: ON CREATE");
+        changeValues();
+//        billTotalAmount.setText(initialValue);
+//        tipTotal.setText(initVal);
+//        tipPercent.setText(initialValue2);
     }
 
     private void setValues() {
@@ -113,5 +135,12 @@ public class MainActivity extends AppCompatActivity {
         totalTip = (percentage * totalBill)/100;
         finalBill = totalBill + totalTip;
         setValues();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+
+        outState.putString("tipPercent",tipPercent.getText().toString());
+        super.onSaveInstanceState(outState);
     }
 }
